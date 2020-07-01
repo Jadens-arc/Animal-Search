@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Animal Search</title>
+    <script src="tries.js"></script>
+    <script src="animals.js"></script>
+    <script>
+        let s = new Solution()
+        s.build(animals);
+        function returnResults(){
+            console.log("something happened");
+            let userText = document.getElementById("animalInput").value.toLowerCase()
+            userText = userText.charAt(0).toUpperCase() + userText.slice(1);
+            console.log(userText);
+            if(userText){
+                document.getElementById("suggestions").innerText = s.autocomplete(userText);
+            }else{
+                document.getElementById("suggestions").innerText = "";
+            }
+        }
+    </script>
+</head>
+<body class="content section">
+    <div class="box">
+        <h1 class="title">Search for an Animal</h1>
+        <div class="field">
+            <div class="control">
+                <input class="input is-primary" id="animalInput" oninput="returnResults()" type="text" placeholder="E.X. Dog, Cat, Fish">
+            </div>
+        </div>
+        <h1 id="suggestions">
+
+        </h1>
+    </div>
+</body>
+</html>
