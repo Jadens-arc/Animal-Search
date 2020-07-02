@@ -45,16 +45,16 @@ class Solution {
 		return this._findWordsFromNode(current, snippet);
 	}
 	_findWordsFromNode(node, prefix) {
-		let words = [];
+		let words = "";
 		if (node.isWord) {
-			words += "• " + prefix + "\n";
+			words += (prefix + ',');
 		}
 		let char;
 		for (char in node.children) {
 			words += this._findWordsFromNode(node.children[char], prefix + char);
 		}
 
-		let wordList = words
+		let wordList = words.split(',')
 		return wordList;
 	}
 }
