@@ -17,24 +17,67 @@
             userText = userText.charAt(0).toUpperCase() + userText.slice(1);
             console.log(userText);
             if(userText){
-                document.getElementById("suggestions").innerText = s.autocomplete(userText);
+                document.getElementById("suggestions").innerText = "";
+                let suggestions = s.autocomplete(userText);
+                suggestions.pop();
+                for (suggestion of suggestions) {
+                    let ul = document.getElementById('suggestions');
+                    let li = document.createElement('li');
+                    let a = document.createElement('a');
+                    a.appendChild(document.createTextNode(suggestion));
+                    a.setAttribute('href', `https://google.com/search?q=${suggestion}+animal`);
+                    a.setAttribute('class', 'subtitle')
+
+                    li.appendChild(a);
+                    
+                    ul.appendChild(li)
+                }
             }else{
                 document.getElementById("suggestions").innerText = "";
             }
         }
     </script>
+    <style>
+        li {
+            text-decoration: underline;
+            list-style-type: circle;
+            font-size: larger;
+        }
+    </style>
 </head>
 <body class="content section">
+    
     <div class="box">
-        <h1 class="title">Search for an Animal</h1>
+        <div style="display: flex; justify-content: space-between;">
+            <span class="title">Search for an Animal</span> 
+            <span style="font-weight: lighter; font-style: italic;" class="title">With Speed</span>
+        </div>
+        <div style="position: relative; display: flex; justify-content: space-between;">
+            <span style="font-weight: 700;" class="button is-primary is-light">
+                <a href="https://jaden-arceneaux.web.app">
+                    By Jaden Arceneaux
+                </a>
+            </span>
+            <span class="button is-primary">
+                <a href="https://github.com/jadens-arc/animal-search">
+                    On Github
+                </a>
+            </span>
+        </div>
+        <hr>
         <div class="field">
             <div class="control">
                 <input class="input is-primary" id="animalInput" oninput="returnResults()" type="text" placeholder="E.X. Dog, Cat, Fish">
             </div>
         </div>
-        <h1 id="suggestions">
-
-        </h1>
+        <div class="notification">
+            <ul id="suggestions" class="">
+                
+            </ul>
+        </div>
     </div>
+
+
+
 </body>
 </html>
