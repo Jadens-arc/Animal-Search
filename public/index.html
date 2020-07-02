@@ -3,40 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.15.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.15.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.15.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.15.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.15.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Animal Search</title>
     <script src="tries.js"></script>
     <script src="animals.js"></script>
-    <script>
-        let s = new Solution()
-        s.build(animals);
-        function returnResults(){
-            console.log("something happened");
-            let userText = document.getElementById("animalInput").value.toLowerCase()
-            userText = userText.charAt(0).toUpperCase() + userText.slice(1);
-            console.log(userText);
-            if(userText){
-                document.getElementById("suggestions").innerText = "";
-                let suggestions = s.autocomplete(userText);
-                suggestions.pop();
-                for (suggestion of suggestions) {
-                    let ul = document.getElementById('suggestions');
-                    let li = document.createElement('li');
-                    let a = document.createElement('a');
-                    a.appendChild(document.createTextNode(suggestion));
-                    a.setAttribute('href', `https://en.wikipedia.org/wiki/${suggestion}`);
-                    a.setAttribute('class', 'subtitle')
-
-                    li.appendChild(a);
-                    
-                    ul.appendChild(li)
-                }
-            }else{
-                document.getElementById("suggestions").innerText = "";
-            }
-        }
-    </script>
+    <script defer src="app.js"></script>
     <style>
         li {
             text-decoration: underline;
