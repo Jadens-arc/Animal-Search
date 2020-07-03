@@ -24,21 +24,31 @@
             list-style-type: circle;
             font-size: larger;
         }
+        @media screen and (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+            a {
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body class="content section" style="height: 100%; ">
-    <footer class="box" style="display: flex; justify-content: space-evenly;">
-        <a href="https://jaden-arceneaux.web.app">
+    <header class="box" style="display: flex; justify-content: space-evenly;">
+        <a class="button is-light" href="https://jaden-arceneaux.web.app">
             By Jaden Arceneaux
         </a>
-        <a href="https://forms.gle/ddC3EEQpgjNRoadL7">
+        <a class="button is-light" href="https://forms.gle/ddC3EEQpgjNRoadL7">
             What Animals Should I Add Next
         </a>
-        <a href="https://github.com/jadens-arc/animal-search">
+        <a class="button is-light" href="https://github.com/jadens-arc/animal-search">
             See Code
         </a>
-
-    </footer>
+        <a class="button is-light" href="how.html">
+            How Does it Work
+        </a>
+    </header>
 
     <div class="box" >
         <div style="display: flex; justify-content: space-between;">
