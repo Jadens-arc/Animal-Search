@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Animal Search - How Does it Work</title>
+    <script>
+    </script>
+    <style>
+        #trie-img{
+            width: 40%;
+        }
+        @media screen and (max-width: 600px){
+            #trie-img{
+                width: 100%;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body class="section container">
+    <div class="box">
+        <h1 class="title">How Does it work</h1>
+    </div>
+    <div class="box">
+        <h1 class="title">Trie</h1>
+        <p>A Trie Data Structure is a way of organizing words so they can easily be searched through letter-by-letter</p>
+        <hr>
+        <p>In a Trie each letter word is placed in it's own Node, each Node is a basic object with only a few properties</p>
+        <br>
+        <div class="notification">
+            <p style="font-family: monospace; line-height: 2;">
+                {<br>
+                    <b>"value"</b>: can be any of the letters in the alphabet, <br>
+                    <b>"children"</b>: a list of what letters come after this one across all words,<br>
+                    <b>"isWord"</b>: a boolean[True or False] which communicates whether this is the final letter in a word <br>
+                }
+            </p>
+        </div>
+        <p>The result is something that looks like this</p>
+        <div class="image">
+            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Trie.png" id="trie-img">
+        </div>
+        <small>source: <a href="geeksforgeeks.org">geeksforgeeks.org</a></small>
+    </div>
+    <div class="box">
+        <h1 class="title">Where do we get the words for the Trie</h1>
+        <h2 class="subtitle">Answer: A Database</h2>
+        <hr>
+        <p>This Database is hosted using Google Firebase and isn't open to the public</p>
+        <p>But if you want to suggest animals to be added to the database you can click <a  href="https://forms.gle/ddC3EEQpgjNRoadL7">here</a></p>
+    </div>
+    <a href="/" class="button">Back</a>
+</body>
+</html>
